@@ -26,8 +26,9 @@ body{
     width: 29.33%;
     margin: 1%;
     padding: 1%;
-    height: 140px;
     position: relative;
+    max-height: 150px;
+    overflow: hidden;
 }
 .service:nth-child(1){
     top: 5px;
