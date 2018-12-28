@@ -71,12 +71,32 @@ section, aside{
     overflow:hidden;
     margin: 1%;
     position: relative;
+    top: 20px;
 }
 #banner h2{
     position: absolute;
-    top: 0;
+    top: 30px;
     margin: 0;
     width: 100%;
     text-align: center;
     color:#fff;
+}
+nav{
+    background: #333;
+    padding: 5px; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+nav ul::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+nav li{
+    list-style-type: none;
+    margin: 0 10px;
+    color: #fff;
+    float: left;
 }
