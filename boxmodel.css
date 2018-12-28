@@ -1,4 +1,13 @@
 
+body{
+    background: #eee;
+}
+.wrapper{
+    background:#fff;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
 .wrapper ::after{
     content: "";
     display: block;
@@ -88,6 +97,7 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1;
 }
 nav ul::after{
     content: " ";
