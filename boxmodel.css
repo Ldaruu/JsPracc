@@ -20,7 +20,7 @@
     height: 140px;
 }
 .services::after{
-    content: " ";
+    content: "";
     display:block;
     clear: both;
 }
@@ -30,4 +30,18 @@
     background: #cccccc;
     clear: both;
     margin-top: 50px;
+}
+section, aside{
+    float: left;
+    width: 46%;
+    margin: 1%;
+    padding: 1%;
+    background: #f2f2f2;
+    margin-top: 20px;
+
+}
+.columns::after{
+    display: block;
+    content: " ";
+    clear: both;
 }
