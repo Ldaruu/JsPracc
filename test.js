@@ -20,7 +20,10 @@ this.city = city;
 
 this.info = function(){
     return 'My name is '+ this.name + ', I am '+ this.age + ' and I live in ' + this.city;
- }
+ }  
+ 
 }
+
 let adam = new Person('Adam Smith', 28, 'London');
 console.log(adam.info());
+
