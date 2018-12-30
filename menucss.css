@@ -46,8 +46,27 @@ a.fb{
 }
 .social{
     max-width: 80px;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
+
+/* grid vs fex base style */
+
+#blocks{
+    margin: 20px;
+}
+article{
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+article h2{
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+
 /*   flex style   */
 
 nav ul.social{
@@ -71,8 +90,20 @@ nav ul.social li{
         display: flex;
         justify-content: space-between
     }
-    .social{
+    ul.social{
         margin: 0;
+    }
+    #blocks{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    article{
+        flex: 0 1 32%;
+        transition: flex-basis 0.3s linear;
+    }
+    article.stack{
+        flex:1 0 100%;
     }
 
 
