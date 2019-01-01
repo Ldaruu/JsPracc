@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="content-2.css">
     <title>Workshop: innerHTML, textContent</title>
   </head>
   <body>
@@ -19,7 +20,10 @@
       for( let i = 0; i < liElements.length;i++){
           liElements[i].textContent =items[i];
       }
-      
+
+      let ulTag = document.getElementsByTagName('ul');
+      ulTag[0].classList.add('lime');
+      console.log(ulTag[0]);
       </script>
 
     <!-- You can work in the html or in a separate js file. Like:
