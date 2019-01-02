@@ -23,11 +23,15 @@
     <script src="content-1.js"></script> -->
     <script>
     const pTag = document.getElementsByTagName('p');
+
+
     const newP = pTag[pTag.length - 1].textContent;
     console.log(newP);
     for(let i = 0; i< pTag.length;i++){
         pTag[i].textContent = newP;
     }
+
+    /*  comment out one of them  */
 
     const updatedP = pTag[pTag.length - 1].innerHTML;
     console.log(updatedP);
