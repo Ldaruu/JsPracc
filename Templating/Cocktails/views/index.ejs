@@ -14,6 +14,14 @@
         <% alcoholList.forEach(function(alcohol){ %> 
             <a href=<%= '?alcohol=' + alcohol %>><%= alcohol %> </a>
        <% }); %>
+
+       <p>Selected Alcohol Type : 
+            <% if(atype.alcohol != null){ %>
+           <strong> <%= atype.alcohol %> </strong>
+            <% }else { %>
+                <strong> <%= 'All what we have' %> </strong>
+            <% }; %></p>
+
     </div>
     <div id="cocktails">
         <table>
@@ -25,12 +33,15 @@
             </thead>
             <tbody>
                     <% cocktails.forEach(function(cocktail){ %>
+                        <% if(cocktail.contains.includes(atype.alcohol) || atype.alcohol == null){ %>
                         <tr>
-                        <td><%= cocktail.name %>
+                        <td><%= cocktail.name %> <% if(!cocktail.isAlcoholic){ %>
+                            <%= ('(Mocktail)') %>
+                            <%};%>
                         <br><%= cocktail.contains %></td>
                         <td><%= cocktail.price %></td>
                     </tr>
-                   <% }); %>
+                   <% }}); %>
                 
             </tbody>
         </table>

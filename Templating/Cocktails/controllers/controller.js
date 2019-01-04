@@ -2,9 +2,9 @@ module.exports = function(app){
 
     app.get('/', (req, res) =>{
         res.render('index',{
-            alcohol : req.query,  
+            atype : req.query,  
             cocktails : cocktails,
-            alcoholList : alcoholList 
+            alcoholList : alcoholList
         });
         
     });
