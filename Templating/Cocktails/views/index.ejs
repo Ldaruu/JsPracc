@@ -36,7 +36,7 @@
                         <% if(cocktail.contains.includes(atype.alcohol) || atype.alcohol == null){ %>
                         <tr>
                         <td><%= cocktail.name %> <% if(!cocktail.isAlcoholic){ %>
-                            <%= ('(Mocktail)') %>
+                            <%= '(non-alcoholic)' %>
                             <%};%>
                         <br><%= cocktail.contains %></td>
                         <td><%= cocktail.price %></td>
@@ -44,7 +44,14 @@
                    <% }}); %>
                 
             </tbody>
+    
         </table>
+        <div id="add">
+                <form>
+                    <input type="text" name="item" placeholder="Add new cocktail" required>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
 
     </div>
 </body>
