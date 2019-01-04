@@ -2,9 +2,11 @@
 <head>
     <title>Cocktails Menu </title>
     <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+        src="/static/cocktails.js"
+        src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+        crossorigin="anonymous">
+    </script>
   <link rel="stylesheet" href="/static/style.css" type="text/css">
 </head>
 <body>
@@ -48,7 +50,11 @@
         </table>
         <div id="add">
                 <form>
-                    <input type="text" name="item" placeholder="Add new cocktail" required>
+                    <input type="text" name="name" placeholder="Add new cocktail" required>
+                    <input type="text" name="price" placeholder="PRICE">
+                    <input type="text" name="contains" placeholder="Ingredience">
+                    <label for="isAlcoholic">Is Alcoholic</label>
+                    <input type="checkbox" name="isAlcoholic" value="true">
                     <button type="submit">Add</button>
                 </form>
             </div>

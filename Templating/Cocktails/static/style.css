@@ -52,7 +52,7 @@ tr:nth-child(odd) td {
 }
 
   input{
-    width: 24%;
+    width: 20%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -61,9 +61,13 @@ tr:nth-child(odd) td {
     font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   }
+  #add{
+    margin-left: 220px;
+  }
 
   button {
-    display: inline-block;
+    display: block;
+    margin-left: 35%;
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
