@@ -24,12 +24,15 @@ module.exports = function(app){
             cocktails : cocktails,
             alcoholList : alcoholList
         });
-        // console.log(cocktails);
-        // console.log('Printed');
+        console.log(cocktails);
+        console.log('Printed');
         
     });
 
     app.post('/', urlencodedParser, (req, res) => {
+        console.log('Hello');
+        console.log(req.body.name);
+        console.log('Hello');
       cocktails.push(req.body);
       res.json(cocktails);
     });
