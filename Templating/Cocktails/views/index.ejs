@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Cocktails Menu </title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/static/style.css" type="text/css">
+</head>
+<body>
+    <h1>Cocktails</h1>
+    <div id="alcohols">
+            <a href="/">All</a>
+        <% alcoholList.forEach(function(alcohol){ %> 
+            <a href=<%= '?alcohol=' + alcohol %>><%= alcohol %> </a>
+       <% }); %>
+    </div>
+    <div id="cocktails">
+        <table>
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% cocktails.forEach(function(cocktail){ %>
+                        <tr>
+                        <td><%= cocktail.name %>
+                        <br><%= cocktail.contains %></td>
+                        <td><%= cocktail.price %></td>
+                    </tr>
+                   <% }); %>
+                
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

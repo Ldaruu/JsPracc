@@ -1,9 +1,14 @@
 module.exports = function(app){
 
     app.get('/', (req, res) =>{
+        res.render('index',{
+            alcohol : req.query,  
+            cocktails : cocktails,
+            alcoholList : alcoholList 
+        });
         
-    })
-}
+    });
+
 
 
 
@@ -26,3 +31,4 @@ const cocktails = [
     { name: 'SAFE SEX ON THE BEACH', price: 990, contains: ['peach schnapps', 'orange juice', 'cranberry juice'], isAlcoholic: false },
   ];
   const alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
+}
