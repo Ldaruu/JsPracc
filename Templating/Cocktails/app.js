@@ -3,6 +3,7 @@ const controller = require('./controllers/controller');
 const app = express();
 const PORT = 8080;
 
+
 app.set('view engine', 'ejs');
 app.use('/static', express.static('static'));
 

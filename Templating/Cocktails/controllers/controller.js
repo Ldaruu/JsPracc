@@ -14,7 +14,7 @@ var cocktails = [
   ];
   var alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
 
-var urlencodedParser = bodyParser.urlencoded({extended: false});
+  var urlencodedParser = bodyParser.urlencoded({extended: true});
 
 module.exports = function(app){
 
@@ -25,15 +25,15 @@ module.exports = function(app){
             alcoholList : alcoholList
         });
         console.log(cocktails);
-        console.log('Printed');
+        console.log('*********');
         
     });
 
     app.post('/', urlencodedParser, (req, res) => {
         console.log('Hello');
-        console.log(req.body.name);
+        console.log(req.body);
         console.log('Hello');
       cocktails.push(req.body);
-      res.json(cocktails);
+      res.send(cocktails);
     });
 }
