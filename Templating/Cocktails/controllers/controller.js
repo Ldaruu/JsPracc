@@ -10,7 +10,7 @@ var cocktails = [
     { name: 'MOJITO', price: 1850, contains: ['rum', 'sugar', 'lime juice', 'soda water'], isAlcoholic: true },
     { name: 'LONG ISLAND ICE TEA', price: 2450, contains: ['vodka', 'rum', 'gin', 'tequila', 'triple sec', 'cola'], isAlcoholic: true },
     { name: 'VIRGIN MOJITO', price: 990, contains: ['sugar', 'lime juice', 'soda water'], isAlcoholic: false },
-    { name: 'SAFE SEX ON THE BEACH', price: 990, contains: ['peach schnapps', 'orange juice', 'cranberry juice'], isAlcoholic: false },
+    { name: 'SAFE SEX ON THE BEACH', price: 990, contains: ['peach schnapps', 'orange juice', 'cranberry juice'], isAlcoholic: true },
   ];
   var alcoholList = ['gin', 'vodka', 'rum', 'tequila'];
 
@@ -34,6 +34,10 @@ module.exports = function(app){
         console.log(req.body);
         console.log('Hello');
       cocktails.push(req.body);
-      res.send(cocktails);
+      res.render('index',{
+        atype : req.query,  
+        cocktails : cocktails,
+        alcoholList : alcoholList
+    });
     });
 }
