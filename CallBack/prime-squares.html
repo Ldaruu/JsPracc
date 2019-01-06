@@ -34,15 +34,46 @@
       <section>
           <div>1</div>
       </section>
+      
 
       <script>
+
           const section = document.querySelector('section');
-          for(let i = 2; i <= 100; i++){
+          for(let id = 2; id <= 100; id++){
           const addDIV = document.createElement('div');
           const newDiv =  section.appendChild(addDIV);
-          newDiv.setAttribute('id',i);
-          newDiv.textContent = i;
+          newDiv.setAttribute('id',id);
+          newDiv.textContent = id;
           }
+
+          const isPrime = (num) => {
+            for (let i = 2; i < num; i++)
+              if (num % i === 0) return false;
+            return num !== 1 && num !== 0;
+            }
+
+          const addClass = (newDiv, id) => {
+              if(isPrime(id)) {
+                  newDiv.classList.add('prime');
+              } else {
+                  newDiv.classList.add('not-prime');
+              }
+          }      
+
+          const getallDiv = document.querySelectorAll('div');
+          let counter = 0;
+
+          const startTimer = () => {
+              return setInterval( () => {
+                  addClass(getallDiv[counter], counter);
+                  counter++;
+                  if(counter === 100){
+                      clearInterval(startCounting);
+                  }
+              },100);
+          }
+          let startCounting = startTimer();
+        
           // 1: generate 100 divs to the <section> element and add index numbers to it as the element's textContent
 
           // 2: Create a function that adds a 'not-prime' class to a div if it's not a prime and 'prime' if it is
