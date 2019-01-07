@@ -8,20 +8,17 @@ myReq.onload = () => {
        renderHTML(myData); 
        makeGIF(myData);  
     //    console.log(myData.data[1].images.fixed_height_still.url);
-
     }else{
         console.log('Something went wrong!');
     }
 };
-myReq.send();
 
+myReq.send();
 
 const renderHTML = (data) => {
     htmlString ="";
-
     for(let i =0; i < 16; i++){
-        htmlString += '<img class="img" src="' + data.data[i].images.fixed_height_still.url + '">';
-        
+        htmlString += '<img class="img" src="' + data.data[i].images.fixed_height_still.url + '">'; 
     }
     thumbDiv.insertAdjacentHTML('beforeend', htmlString);
 };
