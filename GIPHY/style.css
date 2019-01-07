@@ -1,0 +1,14 @@
+#thumb {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-self: center;
+  }
+  
+  .img {
+    padding: 5px;
+    height: 200px;
+    width: auto;
+    overflow: hidden;
+  }
+  
