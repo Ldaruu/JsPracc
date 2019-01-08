@@ -11,7 +11,7 @@ app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname,'index.html'));
 });
 
-app.get('api', (req,res) => {
+app.get('/', (req,res) => {
     const name = req.query.name;
     const url = `https://swapi.co/api/people/?search=${name}`;
     res.json({
