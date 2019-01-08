@@ -1,4 +1,3 @@
-window.onload = () => {
 const characterDiv =  document.getElementsByClassName('character')[0];
 const movieDiv = document.getElementsByClassName('movies')[0];
 const searchButton = document.querySelector('#search');
@@ -21,35 +20,42 @@ searchButton.addEventListener('click', () => {
 
 const renderHTML = (data) => {
     for(let i = 0; i < data.results.length; i++){
-        let characterNames = document.createElement('h5');
+        let characterNames = document.createElement('h4');
         characterNames.textContent = data.results[i].name;
         characterDiv.appendChild(characterNames);   
     }
 };
     const getMovies = (data) => {
-            const h5Tags = document.getElementsByTagName('h5');
-            
-            for(let i = 0; i < h5Tags.length; i++){
-                h5Tags[i].onclick = () => {
+            let h4Tags = document.getElementsByTagName('h4');
+            for(let i = 0; i < h4Tags.length; i++){
+                h4Tags[i].onclick = () => {
+
+                    if(data.results[i].films.length > 0){
+                        let movieHead = document.createElement('h4');
+                        movieHead.textContent = 'Movie Appearance: ';
+                        movieDiv.appendChild(movieHead);
+                        let moviesList = document.createElement('ol');
+                        movieHead.appendChild(moviesList);
+
                     for( let j = 0; j < data.results[i].films.length; j++){
                         let urlHost = data.results[i].films[j];
                         let http = new XMLHttpRequest();
-
                         http.open('GET', urlHost, true);
                         http.onload = () => {
+
                             let movie = JSON.parse(http.response);
                             let movieTitle = document.createElement('li');
                             movieTitle.textContent = movie.title;
                             movieDiv.appendChild(movieTitle);
-                            let releaseDate = document.createElement('p');
+                            let releaseDate = document.createElement('span');
                              releaseDate.textContent = 'Release Date: ' + movie.release_date;
                              movieTitle.appendChild(releaseDate);
                         }
                     
                         http.send();
+                      }
                     }
                 }
                
             }
     }
-}
