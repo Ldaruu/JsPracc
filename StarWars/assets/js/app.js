@@ -9,28 +9,26 @@ searchButton.addEventListener('click', () => {
     myReq.onload = () => {
         if(myReq.status >= 200 && myReq.status < 400){
             let myData = JSON.parse(myReq.responseText);
-            // renderHTML(myData);
+            renderHTML(myData);
             
-            for( let i = 0; i < myData.results.length; i++){
-                let characterNames = document.createElement('p');
-                console.log(myData.results[i].name);
-                characterNames.textContent = myData.results[i].name;
+            // for( let i = 0; i < myData.results.length; i++){
+            //     let characterNames = document.createElement('p');
+            //     console.log(myData.results[i].name);
+            //     characterNames.textContent = myData.results[i].name;
 
-                characterDiv.appendChild(characterNames);
+            //     characterDiv.appendChild(characterNames);
             
-            }
+            // }
             
         }
     }
     myReq.send();
 });
 
-// const renderHTML = (data) => {
-//     htmlString ="";
-
-//     for(let i = 0; i < data.results.length; i++){
-//         htmlString += '<p>' + data.results[i].name + '</p>';
-        
-//     }
-//     characterDiv.insertAdjacentHTML('beforeend', htmlString);
-// };
+const renderHTML = (data) => {
+    for(let i = 0; i < data.results.length; i++){
+        let characterNames = document.createElement('p');
+        characterNames.textContent = data.results[i].name;
+        characterDiv.appendChild(characterNames);   
+    }
+};
