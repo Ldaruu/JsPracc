@@ -12,8 +12,14 @@ body{
     display: block;
     clear: both;
 }
-
-#title h1, #title{
+#title{
+    background-color: black;
+    padding: 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 15px;
+}
+#title h1{
    -webkit-text-stroke: 1px yellow;
    color: black;
    text-shadow:
@@ -23,14 +29,18 @@ body{
       -1px 1px 0 #000,
        1px 1px 0 #000;
     text-align: center;
-    font-family: Serif;
-    background-color: black;
-    padding: 10px 10px;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 68px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+#title p{
+    color: #ffffff;
+    font-size: 22px;
+    margin: 0;
 
 }
+
 #name-input{
     display: flex;
     flex-direction: column;

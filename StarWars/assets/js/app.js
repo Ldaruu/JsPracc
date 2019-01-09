@@ -11,9 +11,14 @@ searchButton.addEventListener('click', () => {
     myReq.onload = () => {
         if(myReq.status >= 200 && myReq.status < 400){
             let myData = JSON.parse(myReq.responseText);
+            if(characterDiv.children.length != 0){
+                searchButton.onclick =  window.location.reload();
+            }else{
+
+            
             renderHTML(myData);
             getMovies(myData);
-            
+            }
         }
     }
     }
