@@ -11,14 +11,6 @@ app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname,'index.html'));
 });
 
-app.get('/', (req,res) => {
-    const name = req.query.name;
-    const url = `https://swapi.co/api/people/?search=${name}`;
-    res.json({
-        url,
-    })
-});
-
 const server =  app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`);
 });
