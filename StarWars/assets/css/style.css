@@ -1,0 +1,111 @@
+body{
+    background: #eeeeee;
+}
+.wrapper{
+    background: #ffffff;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.wrapper::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#title h1, #title{
+   -webkit-text-stroke: 1px yellow;
+   color: black;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+    text-align: center;
+    font-family: Serif;
+    background-color: black;
+    padding: 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 15px;
+
+}
+#name-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#name-input span{
+    color: #000000;
+    font-family: serif;
+    font-weight: bolder;
+    font-size: 32px;
+}
+#name-input input{
+    width: 25%;
+    padding: 12px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+}
+
+#submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+button {
+    display: block;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #eeeeee;
+    background-color: #222222;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 3px #0B3763;
+  }
+  button:hover {
+      background-color: #000000;
+    }
+  button:active {
+    background-color: #222222;
+    box-shadow: 0 1px #0B3763;
+    transform: translateY(4px);
+  }
+   h3{
+      color: #000000;
+      font-family: serif;
+      font-weight: bolder;
+      font-size: 22px;
+      float: left; 
+      width: 100%;
+  }  
+  
+  .box h4 , .box li{
+      margin: 18px 0;
+      text-align: left;
+  }
+
+  .box{
+      display: block;   
+      /* background: #000000; */
+      float: left;
+      color: #000000;
+      width: 46%;
+      margin: 1%;
+      padding: 1%;
+      border-radius: 15px;
+  }
+  .movies h4{
+    text-decoration: underline;
+  }
+  
+ 
