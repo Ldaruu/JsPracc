@@ -10,11 +10,27 @@
 </head>
 <body>
     <h1>Bookstore Info</h1>
-    <ul>
-        <% booktitle.forEach(function(book){ %>
-            <li><%= book.book_name %></li>
-      <%   }) %>
-    </ul>
+    <table>
+            <tr>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Description</th>
+                <th>Publisher Name</th>
+                <th>Price</th>
+            </tr>
+            
+            <%  booktitle.forEach(function(book){ %>
+            <tr>
+                <td><%= book.book_name %></td>
+                <td><%= book.aut_name %></td>
+                <td><%= book.cate_descrip %></td>
+                <td><%= book.pub_name %></td>
+                <td><%= book.book_price %></td>
+           </tr>
+           <%   }) %>    
+    
+    </tbody>
+    </table>
     
 </body>
 </html>

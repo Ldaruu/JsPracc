@@ -16,12 +16,14 @@ module.exports = function(app){
         }
         console.log('Connection established: ' + connection.threadId);
     } );
-    connection.query('SELECT book_name FROM book_mast;', function(err, data){
+    const getAllBooks = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id';
+
+    connection.query(getAllBooks, function(err, data){
         if(err){
             console.log(err.toString());
         }
         app.get('/', (req, res) =>{
-            console.log(res.booktitle);
+            console.log(data);
             res.render('index',{
                 booktitle : data,
             });
