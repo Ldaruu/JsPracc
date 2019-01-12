@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/mysql": "^2.15.5",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "msql": "^1.0.3",
     "mysql": "^2.16.0"
   }
 }
