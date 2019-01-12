@@ -14,8 +14,6 @@ searchButton.addEventListener('click', () => {
             if(characterDiv.children.length != 0){
                 searchButton.onclick =  window.location.reload();
             }else{
-
-            
             renderHTML(myData);
             getMovies(myData);
             }
