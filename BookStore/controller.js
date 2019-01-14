@@ -20,16 +20,17 @@ module.exports = function(app){
 
     connection.query(getAllBooks, function(err, data){
         if(err){
-            console.log(err.toString());
+            console.log(err.message);
         }
-        app.get('/', (req, res) =>{
-            console.log(data);
-            res.render('index',{
+       app.get('/ejs', (req,res) => {
+            // console.log(data);
+            res.render('main',{
                 booktitle : data,
             });
+          });
         });
-    });
+        connection.end();
 
-    connection.end();
+    
 
 };
