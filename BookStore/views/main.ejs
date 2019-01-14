@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SQL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/assests/css/style.css" />
 </head>
 <body>
-    <div id="ejs">
-    <h1>Bookstore Info</h1>
-    <table>
+    <div id="ejs" class="tab">
+      <h1>Bookstore Info with WEB endpoint!</h1>
+      <table>
             <tr>
                 <th>Book Name</th>
                 <th>Author</th>
@@ -28,8 +28,13 @@
                 <td><%= book.book_price %></td>
            </tr>
            <%   }) %>    
-    
-    </tbody> 
-   </table>
+     </table>
+   </div>
+   <div id="json" class="tab">
+       <h1>Bookstore Info with API endpoint!</h1>
+    <table id="mytable">
+    </table>
+</div>
 </body>
+<script src="./assests/js/dom.js"></script>
 </html>

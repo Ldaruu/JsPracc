@@ -19,7 +19,7 @@ const renderTable = (data) => {
     const thPrice = document.createElement('th');
     thTitle.textContent = 'Title';
     thAuthor.textContent = 'Author';
-    thDesc.textContent = 'Content';
+    thDesc.textContent = 'Description';
     thPub.textContent = 'Publisher';
     thPrice.textContent = 'Price';
     tr.appendChild(thTitle);
@@ -38,7 +38,7 @@ const renderTable = (data) => {
         const tdPrice = document.createElement('td');
         tdTitle.textContent = element.book_name;
         tdAuthor.textContent = element.aut_name;
-        tdDesc.textContent = element.cate_decrip;
+        tdDesc.textContent = element.cate_descrip;
         tdPub.textContent = element.pub_name;
         tdPrice.textContent = element.book_price;
         tdtr.appendChild(tdTitle);

@@ -1,5 +1,5 @@
 module.exports = function(app){
-
+    
     const mysql = require('mysql');
     const connection = mysql.createConnection({
         host     : 'localhost',
@@ -7,6 +7,18 @@ module.exports = function(app){
         password : 'laszlo1986',
         port     :  3306,
         database : 'bookstore'
+    });
+    
+    app.get('/books', (req, res) => {
+        connection.query(getAllBooks,(err,data)=> {
+            if(err){
+                console.log(err.message);
+                res.status(500).send();
+            }else{
+                res.json(data);
+    
+            }
+        });
     });
 
     connection.connect( function(err) {
@@ -22,15 +34,12 @@ module.exports = function(app){
         if(err){
             console.log(err.message);
         }
-       app.get('/ejs', (req,res) => {
+       app.get('/', (req,res) => {
             // console.log(data);
             res.render('main',{
                 booktitle : data,
             });
           });
         });
-        connection.end();
-
-    
-
+        // connection.end();
 };
