@@ -10,15 +10,63 @@ module.exports = function(app){
     });
     
     app.get('/books', (req, res) => {
-        connection.query(getAllBooks,(err,data)=> {
-            if(err){
-                console.log(err.message);
-                res.status(500).send();
-            }else{
-                res.json(data);
-    
-            }
-        });
+        const {book_name,aut_name,cate_descrip,pub_name,book_price} = req.query;
+        if(book_name){
+            connection.query(`${getAllBooks} WHERE book_name LIKE '%${book_name}%`,(err,data) => {
+               if(err){
+                   console.log(err.message);
+                   res.send(500).status;
+               } else{
+                   res.json(data);
+               }
+            });
+        }else if(aut_name){
+            connection.query(`${getAllBooks} WHERE book_name LIKE '%${aut_name}%`,(err,data) => {
+                if(err){
+                    console.log(err.message);
+                    res.send(500).status;
+                } else{
+                    res.json(data);
+                }
+             });
+        }else if(cate_descrip){
+            connection.query(`${getAllBooks} WHERE book_name LIKE '%${cate_descrip}%`,(err,data) => {
+                if(err){
+                    console.log(err.message);
+                    res.send(500).status;
+                } else{
+                    res.json(data);
+                }
+             });
+        }else if(pub_name){
+            connection.query(`${getAllBooks} WHERE book_name LIKE '%${pub_name}%`,(err,data) => {
+                if(err){
+                    console.log(err.message);
+                    res.send(500).status;
+                } else{
+                    res.json(data);
+                }
+             });
+        }else if(book_price){
+            connection.query(`${getAllBooks} WHERE book_name LIKE '%${book_price}%`,(err,data) => {
+                if(err){
+                    console.log(err.message);
+                    res.send(500).status;
+                } else{
+                    res.json(data);
+                }
+             });
+        }else{
+            connection.query(getAllBooks,(err,data)=> {
+                if(err){
+                    console.log(err.message);
+                    res.status(500).send();
+                }else{
+                    res.json(data);
+        
+                }
+            });
+        }
     });
 
     connection.connect( function(err) {
@@ -30,7 +78,7 @@ module.exports = function(app){
     } );
     const getAllBooks = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id';
 
-    connection.query(getAllBooks, function(err, data){
+    connection.query(getAllBooks,(err, data) =>{
         if(err){
             console.log(err.message);
         }

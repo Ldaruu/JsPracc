@@ -1,4 +1,5 @@
 const tableTag = document.querySelector('#mytable');
+const form = document.getElementsByTagName('form')[0];
 const http = new XMLHttpRequest();
 http.open('GET','/books');
 http.onload = () => {
