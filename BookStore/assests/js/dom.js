@@ -6,6 +6,7 @@ http.onload = () => {
     if(http.status === 200){
         const data = JSON.parse(http.responseText);
         console.log(data);
+        console.log(url);
         renderTable(data);
     }
 }
@@ -29,7 +30,6 @@ const renderTable = (data) => {
     tr.appendChild(thPub);
     tr.appendChild(thPrice);
     tableTag.appendChild(tr);
-    console.log(tr);
     data.forEach(element => {
         const tdtr = document.createElement('tr');
         const tdTitle = document.createElement('td');
@@ -48,7 +48,36 @@ const renderTable = (data) => {
         tdtr.appendChild(tdPub);
         tdtr.appendChild(tdPrice);
         tableTag.appendChild(tdtr); 
-        console.log(tdtr);
         });
-
 }
+ const{book_name,aut_name,cate_descrip,pub_name,book_price} = form.elements ;
+ let url= '/books?';
+
+ form.addEventListener('submit', (event => {
+     event.preventDefault();
+     if(book_name.value){
+         url += `book_name=${book_name.value}&`;
+     }
+     if(aut_name.value){
+         url += `aut_name=${aut_name.value}&`;
+     }
+     if(cate_descrip.value){
+         url += `cate_descrip=${cate_descrip.value}&`;
+     }
+     if(pub_name.value){
+         url += `pub_name=${pub_name.value}&`;
+     }
+     if(book_price.value){
+         url += `book_price<=${book_price.value}&`;
+     }
+
+     const search = new XMLHttpRequest();
+     search.open('GET', url);
+     search.onload = () =>{
+         if(search.status == 200){
+             const data =JSON.parse(search.responseText);
+             renderTable(data);
+         }
+     }
+     search.send();
+ }));
