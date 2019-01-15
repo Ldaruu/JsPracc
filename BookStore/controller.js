@@ -8,9 +8,12 @@ module.exports = function(app){
         port     :  3306,
         database : 'bookstore'
     });
+
+    const getAllBooks = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id';
+
     
     app.get('/books', (req, res) => {
-        const {book_name,aut_name,cate_descrip,pub_name,book_price} = req.query;
+        const {book_name, aut_name, cate_descrip, pub_name, book_price} = req.query;
         if(book_name){
             connection.query(`${getAllBooks} WHERE book_name LIKE '%${book_name}%';`,(err,data) => {
                if(err){
@@ -48,7 +51,7 @@ module.exports = function(app){
                 }
              });
         }else if(book_price){
-            connection.query(`${getAllBooks} WHERE book_price %3C '${book_price}';`,(err,data) => {
+            connection.query(`${getAllBooks} WHERE book_price <= ${book_price};`,(err,data) => {
                 if(err){
                     console.log(err.message);
                     res.send(500).status;
@@ -76,8 +79,7 @@ module.exports = function(app){
         }
         console.log('Connection established: ' + connection.threadId);
     } );
-    const getAllBooks = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM ((book_mast INNER JOIN author ON author.aut_id = book_mast.aut_id) INNER JOIN category ON book_mast.cate_id = category.cate_id) INNER JOIN publisher ON book_mast.pub_id = publisher.pub_id';
-
+    
     connection.query(getAllBooks,(err, data) =>{
         if(err){
             console.log(err.message);
