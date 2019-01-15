@@ -14,7 +14,7 @@ module.exports = function(app){
     
     app.get('/books', (req, res) => {
         const {book_name, aut_name, cate_descrip, pub_name, book_price} = req.query;
-        if(book_name){
+        if(book_name !== undefined){
             connection.query(`${getAllBooks} WHERE book_name LIKE '%${book_name}%';`,(err,data) => {
                if(err){
                    console.log(err.message);
