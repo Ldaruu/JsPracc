@@ -68,7 +68,7 @@ const renderTable = (data) => {
          url += `pub_name=${pub_name.value}&`;
      }
      if(book_price.value){
-         url += `book_price<=${book_price.value}&`;
+         url += `book_price%3C=${book_price.value}&`;
      }
 
      const search = new XMLHttpRequest();
@@ -77,6 +77,7 @@ const renderTable = (data) => {
          if(search.status == 200){
              const data =JSON.parse(search.responseText);
              renderTable(data);
+             console.log(data);
          }
      }
      search.send();

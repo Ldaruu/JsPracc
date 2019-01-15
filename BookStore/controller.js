@@ -48,7 +48,7 @@ module.exports = function(app){
                 }
              });
         }else if(book_price){
-            connection.query(`${getAllBooks} WHERE book_price <= '${book_price}';`,(err,data) => {
+            connection.query(`${getAllBooks} WHERE book_price %3C '${book_price}';`,(err,data) => {
                 if(err){
                     console.log(err.message);
                     res.send(500).status;
