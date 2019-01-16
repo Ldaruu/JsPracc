@@ -1,13 +1,6 @@
 module.exports = (app) =>{
 
-    const getDateTime = () =>{
-        var today = new Date();
-            var date = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
-            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-            var dateTime = date+' '+time;
-            return dateTime;
-        }
-
+    const dateTime = require('./datetime');
     const mysql = require('mysql');
     const connection = mysql.createConnection({
         host     : 'localhost',
@@ -25,9 +18,7 @@ module.exports = (app) =>{
     } );
 
     app.get('/',(req, res) => {
-        console.log(time);
-        res.sendFile(__dirname +'/views/index.html')
-        
+        res.sendFile(__dirname +'/views/index.html')  
     });
 
     app.get('/api/posts', (req, res) => {
@@ -46,7 +37,7 @@ module.exports = (app) =>{
        const title = req.body.title;
        const url =  req.body.url;
        const vote = 0;
-       const date = getDateTime();
+       const date = dateTime();
        if(title == undefined || url == undefined){
            res.status(418).send('Title or URL is missing!');
        }else{
