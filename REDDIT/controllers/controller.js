@@ -53,9 +53,59 @@ module.exports = (app) =>{
                     res.status(500).send('Error with Database!');
                     return;
                    }
-                   res.send(result);
+                   res.status(200).send(result);
                });
            });
        }
+   });
+
+   app.put('/api/posts/:id/upvote',(req, res) =>{
+       const id = req.params.id;
+       connection.query(`UPDATE posts SET vote = vote +1 WHERE id = ?; `,[id],(err,result) => {
+           if(err){
+            console.log(err.message);
+            res.status(500).send('Error with Database!');
+            return;
+           }
+           connection.query(`SELECT * FROM posts WHERE id = ?;`,[id], (err, result) => {
+               if(err){
+                console.log(err.message);
+                res.status(500).send('Error with Database!');
+                return;
+               }
+               res.status(200).send(result);
+           });
+       });
+   });
+   
+   app.put('/api/posts/:id/downvote',(req, res) =>{
+    const id = req.params.id;
+    connection.query(`UPDATE posts SET vote = vote -1 WHERE id = ?; `,[id],(err,result) => {
+        if(err){
+         console.log(err.message);
+         res.status(500).send('Error with Database!');
+         return;
+        }
+        connection.query(`SELECT * FROM posts WHERE id = ?;`,[id], (err, result) => {
+            if(err){
+             console.log(err.message);
+             res.status(500).send('Error with Database!');
+             return;
+            }
+            res.status(200).send(result);
+        });
+    });
+});
+
+   app.delete('/api/posts/:id/delete', (req, res) => {
+    const id = req.params.id;
+       connection.query(`DELETE FROM posts WHERE id = ?;`,[id], (err, result) =>{
+           if(err){
+            console.log(err.message);
+            res.status(500).send('Error with Database, while trying to DELETE!');
+            return;
+           }
+           res.status(200).send('Row DELETED');
+       });
    });
 }
