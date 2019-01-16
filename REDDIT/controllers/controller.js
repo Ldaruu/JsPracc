@@ -105,7 +105,28 @@ module.exports = (app) =>{
             res.status(500).send('Error with Database, while trying to DELETE!');
             return;
            }
-           res.status(200).send('Row DELETED');
+           res.status(200).send('Row DELETED on ID: ' +id);
        });
    });
+
+   app.put('/api/posts/:id/update', (req, res) => {
+       const id = req.params.id;
+       const title = req.body.title;
+       const url = req.body.url;
+       connection.query(`UPDATE posts SET title = ?, url = ? WHERE id = ?;`,[title, url, id], (err, result) => {
+           if(err){
+            console.log(err.message);
+            res.status(500).send('Error with Database, while trying to UPDATE!');
+            return;
+           }
+           connection.query(`SELECT * FROM posts WHERE id = ?;`,[id], (err, result) => {
+               if(err){
+                console.log(err.message);
+                res.status(500).send('Error with Database');
+                return;
+               }
+               res.status(200).send(result);
+           })
+       })
+   })
 }
