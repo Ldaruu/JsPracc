@@ -1,7 +1,6 @@
 const list = document.getElementById('msg');
 const host = 'http://localhost:8080/api/posts';
 
-const apiCall = () => {
 const http =  new XMLHttpRequest();
 http.open('GET', host, true);
 http.onload = () => {
@@ -11,8 +10,7 @@ http.onload = () => {
     }
 }
 http.send();
-}
-apiCall();
+
 setInterval(()=>{
 location.reload();
 },9000);
