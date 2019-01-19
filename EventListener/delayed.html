@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Workshop: EventListeners</title>
+  </head>
+  <body>
+      <h1></h1>
+    <button>Click me</button>
+    <img src="bunny.gif" style="display: none;">
+    <!-- Create a simple HTML document with one button. If the user clicks the button it should wait 2 seconds and it should show a text under the button: 2 seconds ellapsed
+    OR-->
+    <script>
+    const button = document.querySelector('button');
+    const title =  document.getElementsByTagName('h1')[0];
+    const img =  document.getElementsByTagName('img')[0];
+    button.addEventListener('click', timer);
+    function timer(){
+        setInterval(function(){
+            title.innerHTML = 'Hello on my Site!!'
+            img.style.display = "block";
+        },2000);
+    }
+    </script> 
+  </body>
+</html>
