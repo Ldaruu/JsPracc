@@ -3,7 +3,6 @@ import  React  from 'react';
 const Accounts =({accounts, deleteAccout})=>{
     const accList = accounts.map(account => {
         return(
-           
             <tr className="acc" key={account.id}>
                 <td> {account.name}</td>
                 <td> {account.age}</td>
@@ -11,7 +10,6 @@ const Accounts =({accounts, deleteAccout})=>{
                 <td> ${account.balance}</td>
                 <td><button onClick={() => {deleteAccout(account.id)}}>Delete</button></td>
             </tr>
-           
         )
     })
     return(
@@ -28,7 +26,6 @@ const Accounts =({accounts, deleteAccout})=>{
              </thead>
              <tbody>
              {accList}
-        
              </tbody>
          </table>
          
