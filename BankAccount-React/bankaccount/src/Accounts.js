@@ -1,6 +1,6 @@
 import  React  from 'react';
 
-const Accounts =({accounts})=>{
+const Accounts =({accounts, deleteAccout})=>{
     const accList = accounts.map(account => {
         return(
            
@@ -9,6 +9,7 @@ const Accounts =({accounts})=>{
                 <td> {account.age}</td>
                 <td> {account.city}</td>
                 <td> ${account.balance}</td>
+                <td><button onClick={() => {deleteAccout(account.id)}}>Delete</button></td>
             </tr>
            
         )
@@ -22,10 +23,12 @@ const Accounts =({accounts})=>{
                  <th>Age</th>
                  <th>City</th>
                  <th>Balance</th>
+                 <th>Delete</th>
              </tr>
              </thead>
              <tbody>
              {accList}
+        
              </tbody>
          </table>
          

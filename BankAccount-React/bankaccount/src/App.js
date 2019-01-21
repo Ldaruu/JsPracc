@@ -18,14 +18,22 @@ class App extends Component {
     this.setState({
       accounts: newAccount
     })
-
   }
+  deleteAccout = (id) =>{
+    let acc = this.state.accounts.filter(account => {
+      return account.id !== id
+    });
+    this.setState({
+      accounts: acc
+    })
+  }
+  
   render() {
     return (
       <div className="App">
        <h1>My first React App!</h1>
        <h4>Bank of React</h4>
-       <Accounts accounts={this.state.accounts}/>
+       <Accounts deleteAccout={this.deleteAccout} accounts={this.state.accounts}/>
        <AddAccount addAccount ={this.addAccount} />
       </div>
     );
