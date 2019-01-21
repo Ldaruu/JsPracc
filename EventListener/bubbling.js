@@ -1,7 +1,6 @@
 const xyz = [0,0,150];
 const  navTag = document.getElementsByTagName('nav')[0];
 
-
 navTag.addEventListener('click', function(event){
 if(event.target.hasAttribute('data-direction')){
     const direction = event.target.attributes["data-direction"].value;
