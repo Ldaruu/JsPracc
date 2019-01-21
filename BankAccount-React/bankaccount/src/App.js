@@ -5,10 +5,10 @@ import Accounts from './Accounts';
 class App extends Component {
   state = {
     accounts: [
-      {name: 'Bob', age: 25, balance: 10000, id: 1},
-      {name: 'John', age: 33, balance: 15000, id: 2},
-      {name: 'Linda', age: 28, balance: 20000, id: 3},
-      {name: 'Susan', age: 45, balance: 330000, id: 4}
+      {name: 'Bob', age: 25, city:'London', balance: 10000, id: 1},
+      {name: 'John', age: 33, city:'Budapest',  balance: 15000, id: 2},
+      {name: 'Linda', age: 28, city:'NewYork', balance: 20000, id: 3},
+      {name: 'Susan', age: 45, city:'Toronto',balance: 330000, id: 4}
     ]
   }
   render() {
