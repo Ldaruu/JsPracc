@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Accounts from './Accounts';
+import AddAccount from './AddAccount';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
        <h1>My first React App!</h1>
        <h4>Bank of React</h4>
        <Accounts accounts={this.state.accounts}/>
+       <AddAccount/>
       </div>
     );
   }
