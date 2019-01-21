@@ -12,14 +12,14 @@ class AddAcc extends Component{
             [e.target.id]: e.target.value
         })
     }
-    handleSubmint = (e) =>{
+    handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(this.state);
+        this.props.addAccount(this.state);
     }
     render(){
         return(
             <div>
-                <form onSubmit={this.handleSubmint}>   
+                <form onSubmit={this.handleSubmit}>   
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" onChange={this.handleChange} />
                     <label htmlFor="age">Age:</label>

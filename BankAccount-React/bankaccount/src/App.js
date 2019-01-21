@@ -12,13 +12,21 @@ class App extends Component {
       {name: 'Susan', age: 45, city:'Toronto',balance: 330000, id: 4}
     ]
   }
+  addAccount = (account) => {
+    account.id = Math.floor(Math.random() * Math.floor(100));
+    let newAccount = [...this.state.accounts, account];
+    this.setState({
+      accounts: newAccount
+    })
+
+  }
   render() {
     return (
       <div className="App">
        <h1>My first React App!</h1>
        <h4>Bank of React</h4>
        <Accounts accounts={this.state.accounts}/>
-       <AddAccount/>
+       <AddAccount addAccount ={this.addAccount} />
       </div>
     );
   }
