@@ -41,7 +41,7 @@ class Home extends Component{
       
       render() {
           const{img} = this.state
-          const images = img.length ? (
+          const image = img.length ? (
               img.map(pic => {
                   let imgUrl = pic.images.original.url ;
                   console.log(imgUrl);
@@ -54,11 +54,12 @@ class Home extends Component{
           ) : (
               <div>Bank is Closed!</div>
           )
+
         return (
           <div className="App">
            <h1>My first React App!</h1>
            <h4>Bank of React</h4>
-           {images}
+           {image}
            <Accounts deleteAccout={this.deleteAccout} accounts={this.state.accounts}/>
            <AddAccount addAccount ={this.addAccount} />
           </div>
