@@ -1,7 +1,7 @@
 import  React  from 'react';
 import {Link} from 'react-router-dom'
 
-const Accounts =({accounts, deleteAccout})=>{
+const Accounts =({accounts, handleClick})=>{
     const accList = accounts.map(account => {
         return(
             <tr className="acc" key={account.id}>
@@ -13,7 +13,7 @@ const Accounts =({accounts, deleteAccout})=>{
                 <td> {account.age}</td>
                 <td> {account.city}</td>
                 <td> ${account.balance}</td>
-                <td><button onClick={() => {deleteAccout(account.id)}}>Delete</button></td>
+                <td><button onClick={() => {handleClick(account.id)}}>Delete</button></td>
             </tr>
         )
     })

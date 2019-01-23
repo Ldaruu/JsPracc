@@ -8,6 +8,15 @@ const initState = {
 }
 
 const rootReducer = (state = initState, action) =>{
+    if(action.type === 'DELETE_ACCOUNT'){
+        let newAccounts= state.accounts.filter(account =>{
+            return action.id !== account.id
+        })
+        return{
+            ...state,
+            accounts: newAccounts
+        }
+    }
     return state;
 }
 

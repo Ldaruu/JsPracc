@@ -25,13 +25,8 @@ class Home extends Component{
           accounts: newAccount
         })
       }
-      deleteAccout = (id) =>{
-        let acc = this.props.accounts.filter(account => {
-          return account.id !== id
-        });
-        this.setState({
-          accounts: acc
-        })
+      handleClick = () =>{
+       this.props.deleteAccount(this.props.account.id);
       }
       
       render() {
@@ -56,7 +51,7 @@ class Home extends Component{
            <h1>My first React App!</h1>
            <h4>Bank of React</h4>
            {image}
-           <Accounts deleteAccout={this.deleteAccout} accounts={this.props.accounts}/>
+           <Accounts handleClick={this.props.deleteAccount} accounts={this.props.accounts}/>
            <AddAccount addAccount ={this.addAccount} />
           </div>
         );
@@ -68,6 +63,13 @@ class Home extends Component{
             accounts: state.accounts
         }
     }
+    const  mapDispatchToProps = (dispatch) =>{
+        return{
+            deleteAccount: (id) => {
+                dispatch({type: 'DELETE_ACCOUNT', id: id})
+            }
+        }
+    }
     
-    export default connect(mapStateToProps)(Home)
+    export default connect(mapStateToProps, mapDispatchToProps)(Home)
     
