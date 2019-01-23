@@ -1,10 +1,15 @@
 import  React  from 'react';
+import {Link} from 'react-router-dom'
 
 const Accounts =({accounts, deleteAccout})=>{
     const accList = accounts.map(account => {
         return(
             <tr className="acc" key={account.id}>
-                <td> {account.name}</td>
+               <td>
+                <Link to={'/'+ account.id+'/'+ account.name+'/'+ account.age+'/'+account.city+'/'+account.balance}>
+                 {account.name} 
+                </Link>
+                </td>
                 <td> {account.age}</td>
                 <td> {account.city}</td>
                 <td> ${account.balance}</td>
