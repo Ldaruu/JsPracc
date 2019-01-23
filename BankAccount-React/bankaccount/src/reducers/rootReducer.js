@@ -17,6 +17,15 @@ const rootReducer = (state = initState, action) =>{
             accounts: newAccounts
         }
     }
+    if(action.type === 'ADD_ACCOUNT'){
+        console.log(action)
+        let newAccount =[...state.accounts, action.acc]
+        return{
+            ...state,
+            accounts: newAccount
+
+        }
+    }
     return state;
 }
 

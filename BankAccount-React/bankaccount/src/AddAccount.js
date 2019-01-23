@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 
 class AddAcc extends Component{
     state = {
+        id: Math.floor(Math.random() * Math.floor(100)),
         name: '',
         age: '',
         city: '',
@@ -14,6 +15,7 @@ class AddAcc extends Component{
     }
     handleSubmit = (e) =>{
         e.preventDefault();
+        // console.log(this.state)
         this.props.addAccount(this.state);
         this.setState({
             name: '',
@@ -23,6 +25,7 @@ class AddAcc extends Component{
         })
     }
     render(){
+    
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>   

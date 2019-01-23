@@ -19,23 +19,25 @@ class Home extends Component{
     }
 
       addAccount = (account) => {
-        account.id = Math.floor(Math.random() * Math.floor(100));
-        let newAccount = [...this.props.accounts, account];
-        this.setState({
-          accounts: newAccount
-        })
+          console.log(account)
+        // account.id = Math.floor(Math.random() * Math.floor(100));
+        // let newAccount = [...this.props.accounts, account];
+        // this.setState({
+        //   accounts: newAccount
+        this.props.addAccount(account)
+        // })
       }
+
       handleClick = () =>{
        this.props.deleteAccount(this.props.account.id);
       }
       
       render() {
-          console.log(this.props)
+        //   console.log(this.props)
           const{img} = this.state
           const image = img.length ? (
               img.map(pic => {
                   let imgUrl = pic.images.original.url ;
-                  console.log(imgUrl);
                   return(
                       <div key={pic.id}>
                         <img src={imgUrl}  alt="$$$" height="200" width="200"/>
@@ -67,6 +69,10 @@ class Home extends Component{
         return{
             deleteAccount: (id) => {
                 dispatch({type: 'DELETE_ACCOUNT', id: id})
+            },
+            addAccount: (acc ) => {
+                dispatch({type: 'ADD_ACCOUNT', 
+                         acc: acc})
             }
         }
     }
