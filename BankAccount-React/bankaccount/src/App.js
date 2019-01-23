@@ -18,7 +18,7 @@ class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/about' component={About} />
         <Route path='/contact' component={Contact} />
-        <Route path="/:acc_id/:name/:age/:city/:balance" component={UserAcc}/>
+        <Route path="/:account_id" component={UserAcc}/>
       </div>
       </BrowserRouter>
     );

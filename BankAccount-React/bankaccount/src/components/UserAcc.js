@@ -1,31 +1,11 @@
 import React,{ Component } from 'react';
+import { connect } from 'react-redux';
 
 
 class UserAcc extends Component{
-    state = {
-        id: '',
-        name: '',
-        age: '',
-        city: '',
-        balance: ''
-    }
-    componentDidMount(){
-        let id = this.props.match.params.acc_id;
-        let name = this.props.match.params.name;
-        let age = this.props.match.params.age;
-        let city = this.props.match.params.city;
-        let balance = this.props.match.params.balance;
-        console.log(this.props)
-        this.setState({
-            id: id,
-            name: name,
-            age: age,
-            city: city,
-            balance: balance
 
-        })
-    }
 render(){
+    console.log(this.props)
     return(
         <div>
         <table>
@@ -38,10 +18,12 @@ render(){
              </tr>
              </thead>
              <tbody>
-             <td>{this.state.name}</td>
-             <td>{this.state.age}</td>
-             <td>{this.state.city}</td>
-             <td>{this.state.balance}</td>
+                 <tr>
+                    <td>{this.props.account.name}</td>
+                    <td>{this.props.account.age}</td>
+                    <td>{this.props.account.city}</td>
+                    <td>{this.props.account.balance}</td>
+             </tr>
              </tbody>
          </table>
         </div>
@@ -49,4 +31,12 @@ render(){
     }
 }
 
-export default UserAcc
+const mapStateToProps = (state, ownProps) =>{
+let id = parseInt(ownProps.match.params.account_id);
+return{
+    account: state.accounts.find(account => account.id === id)
+     
+  }
+}
+
+export default connect(mapStateToProps)(UserAcc)

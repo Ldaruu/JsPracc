@@ -6,7 +6,7 @@ const Accounts =({accounts, deleteAccout})=>{
         return(
             <tr className="acc" key={account.id}>
                <td>
-                <Link to={'/'+ account.id+'/'+ account.name+'/'+ account.age+'/'+account.city+'/'+account.balance}>
+                <Link to={'/'+ account.id}>
                  {account.name} 
                 </Link>
                 </td>

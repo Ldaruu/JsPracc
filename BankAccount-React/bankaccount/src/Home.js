@@ -2,21 +2,16 @@ import React, {Component} from 'react';
 import Accounts from './Accounts';
 import AddAccount from './AddAccount';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 class Home extends Component{
+    
     state = {
-        accounts: [
-          {name: 'Bob', age: 25, city:'London', balance: 10000, id: 1},
-          {name: 'John', age: 33, city:'Budapest',  balance: 15000, id: 2},
-          {name: 'Linda', age: 28, city:'NewYork', balance: 20000, id: 3},
-          {name: 'Susan', age: 45, city:'Toronto',balance: 330000, id: 4}
-        ],
         img: []
       }
       componentDidMount(){
         axios.get('http://api.giphy.com/v1/gifs/search?q=money&api_key=LCTqQxbLKacDnf61FqHGzFLTeW6qZPI8')
             .then(res => {
-                console.log(res.data.data);
                 this.setState({
                     img: res.data.data.slice(1,2)
                 })
@@ -25,13 +20,13 @@ class Home extends Component{
 
       addAccount = (account) => {
         account.id = Math.floor(Math.random() * Math.floor(100));
-        let newAccount = [...this.state.accounts, account];
+        let newAccount = [...this.props.accounts, account];
         this.setState({
           accounts: newAccount
         })
       }
       deleteAccout = (id) =>{
-        let acc = this.state.accounts.filter(account => {
+        let acc = this.props.accounts.filter(account => {
           return account.id !== id
         });
         this.setState({
@@ -40,6 +35,7 @@ class Home extends Component{
       }
       
       render() {
+          console.log(this.props)
           const{img} = this.state
           const image = img.length ? (
               img.map(pic => {
@@ -60,12 +56,18 @@ class Home extends Component{
            <h1>My first React App!</h1>
            <h4>Bank of React</h4>
            {image}
-           <Accounts deleteAccout={this.deleteAccout} accounts={this.state.accounts}/>
+           <Accounts deleteAccout={this.deleteAccout} accounts={this.props.accounts}/>
            <AddAccount addAccount ={this.addAccount} />
           </div>
         );
       }
     }
+
+    const mapStateToProps = (state) =>{
+        return{
+            accounts: state.accounts
+        }
+    }
     
-    export default Home;
+    export default connect(mapStateToProps)(Home)
     
