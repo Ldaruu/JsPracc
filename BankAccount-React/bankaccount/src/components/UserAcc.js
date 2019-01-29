@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class UserAcc extends Component{
 
 render(){
-    console.log(this.props)
+    console.log('EZ',this.props.account.name)
     return(
         <div>
         <table>
