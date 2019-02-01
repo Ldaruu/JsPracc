@@ -1,7 +1,5 @@
 import {connect} from 'react-redux';
 import TodoList from '../comp/TodoList';
-import rootReducer from '../reducers/rootReducer';
-
 
 const mapStateToProps = (state) =>{
     return{
@@ -16,7 +14,7 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList,rootReducer);
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
 
 export default AppContainer
 
