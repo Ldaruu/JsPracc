@@ -21,13 +21,17 @@ class AddTodo extends Component {
         const todo = this.state.todo
         this.props.dispatch({type:'ADD_TODO',todo:todo})
 
+        console.log('Props:',this.props)
+
         this.setState({
                 todo:''
             })
     }
 
+
     render(){
-       
+        
+        
         return(
          <div>
           <form onSubmit ={this.handleSubmit}>

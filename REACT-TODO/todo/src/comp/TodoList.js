@@ -3,12 +3,12 @@ import { Button } from "primereact/button";
 
 const todoList = (todos, toggleTodo)=>{
 
-    if(todos.length === 0 || todos.length === null){
+    if(todos.length === 0 || todos.length === null || todos.length === undefined){
         return(
             <div>
             <h1>No Todos</h1>
             <Button
-                label="Just Test"/>
+                label="Just Test BTN"/>
             </div>
         )
     }else{

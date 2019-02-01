@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import AddTodo from './containers/AddTodo'
-import VisibleTodos from './containers/VisibleTodos'
+import AddTodo from './AddTodo'
+import AppContainer from './VisibleTodos'
 
 
 
@@ -10,11 +10,11 @@ class TodoApp extends Component {
         return(
          <div className="App">
              <AddTodo/>
-           <VisibleTodos  />
+           <AppContainer  />
           
         </div>
       );
     }
 }
 
-export default TodoApp
+export default  TodoApp
