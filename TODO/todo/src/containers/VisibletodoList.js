@@ -12,10 +12,9 @@ const getVisibleTodos = (todos, filter) => {
       case visibilityFilters.SHOW_ACTIVE:
         return todos.filter(t => !t.completed)
       default:
-        throw new Error('Unknown filter: ' + filter)
+        throw new Error('Wait WHAAAT??: ' + filter)
     }
   }
-
 
 const mapStateToProps = state => ({
   todos: getVisibleTodos(state.todos, state.visibilityFilter)
