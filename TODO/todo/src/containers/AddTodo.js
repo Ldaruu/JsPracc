@@ -17,13 +17,8 @@ let input;
                 <input ref={node => input = node} />
                 <button type="submit">ADD TODO</button>
                 </form>
-            {/* <button onClick={ () => {
-                dispatch(addTodo('Do it!'))}  }>
-                Add
-            </button> */}
         </div>
     )
 }
-
 
 export default connect() (AddTodo)

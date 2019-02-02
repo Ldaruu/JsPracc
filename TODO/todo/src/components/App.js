@@ -3,7 +3,6 @@ import AddTodo from '../containers/AddTodo';
 import VisibletodoList from '../containers/VisibletodoList'
 
 const App = () => {
-  console.log(this)
   
     return (
       <div className="App">
@@ -13,6 +12,7 @@ const App = () => {
       </div>
     );
   }
+  console.log('AA',this)
 
 
 export default App;
