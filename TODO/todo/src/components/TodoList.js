@@ -1,17 +1,14 @@
 import React from 'react'
-import {toggleTodo} from '../actions/index'
+import Todo from './Todo'
 
-const TodoList = ({ todos, dispatch}) => (
+const TodoList = ({ todos, toggleTodo}) => (
 <ul>
     {todos.map(todo =>
-        <li key={todo.id}
+        <Todo key={todo.id}
+        {...todo}
         onClick={() =>{
-            dispatch(toggleTodo(todo.id))}}
-            style={{
-                textDecoration: todo.completed ? 'line-through' : 'none'
-            }}>
-            {todo.text}
-        </li>)}
+            toggleTodo(todo.id)}}
+        />)}
 </ul>
 )
 
