@@ -22,7 +22,7 @@ const todoList = (todos, toggleTodo)=>{
 
     </div>
     )
-}
+    }
 }
 
 export default todoList

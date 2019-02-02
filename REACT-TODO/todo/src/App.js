@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import TodoApp from './TodoApp';
+import TodoApp from './containers/TodoApp';
+import { connect } from 'react-redux';
 
 
 
 class App extends Component {
 
-
   render() {
     console.log('THIS',this)
     return (
-     <TodoApp todos={this.props} />
+     <TodoApp />
     );
   }
 }
 
-export default  App;
+export default connect() (App);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddTodo from './AddTodo'
 import AppContainer from './VisibleTodos'
+import { connect } from 'react-redux';
 
 
 
@@ -10,11 +11,11 @@ class TodoApp extends Component {
         return(
          <div className="App">
              <AddTodo/>
-           <AppContainer  />
+           <AppContainer />
           
         </div>
       );
     }
 }
 
-export default  TodoApp
+export default connect()  (TodoApp)

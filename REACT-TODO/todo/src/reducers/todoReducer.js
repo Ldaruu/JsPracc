@@ -9,6 +9,7 @@ const defaultState = {
 let id =0;
 
 const todoReducer = (state = defaultState, action) =>{
+    console.log('ST: ',state)
     switch (action.type){
         case 'ADD_TODO':
         let newTodo = [...state.todos,{todo:action.todo,id:id++,completed:false}]

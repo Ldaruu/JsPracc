@@ -18,20 +18,14 @@ class AddTodo extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault();
-        const todo = this.state.todo
-        this.props.dispatch({type:'ADD_TODO',todo:todo})
-
-        console.log('Props:',this.props)
-
+        // const todo = this.state.todo
+        this.props.dispatch({type:'ADD_TODO',todo:this.state.todo})
         this.setState({
                 todo:''
             })
     }
 
-
     render(){
-        
-        
         return(
          <div>
           <form onSubmit ={this.handleSubmit}>
