@@ -4,6 +4,7 @@ const defaultState = {
 
 
 const todoReducer = (state = defaultState, action) =>{
+    console.log('ST: ',state)
     switch (action.type){
         case 'GET_TODOS':
         return Object.assign({}, state, {
