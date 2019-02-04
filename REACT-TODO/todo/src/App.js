@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import TodoApp from './TodoApp';
+import TodoList from './comp/TodoList';
 
-
-
-class App extends Component {
-
-  render() {
-    console.log('THIS',this)
-    return (
-     <TodoApp todos={this.props} />
-    );
+const App = ({ todos, getTodos }) => {
+{console.log(todos)}
+  if(todos.length === 0){
+    return <button onClick={getTodos}>Get todos</button>
+  } else {
+    return <TodoList listOfTodos={todos}/>
   }
-}
+};
 
-export default  App;
+export default App;
+
