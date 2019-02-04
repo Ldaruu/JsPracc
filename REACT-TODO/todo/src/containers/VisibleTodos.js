@@ -1,11 +1,10 @@
 import {connect} from 'react-redux';
-import TodoList from '../comp/TodoList';
+import todoList from '../comp/TodoList';
 
-const mapStateToProps = (state) =>{
-    return{
+const mapStateToProps = state =>({
     todos: state.todos
-    }
-}
+    })
+
 const mapDispatchToProps = (dispatch) =>{
     return{
     toggleTodo: (id) => dispatch({
@@ -14,19 +13,6 @@ const mapDispatchToProps = (dispatch) =>{
     }
 }
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(todoList);
 
 export default AppContainer
-
-// import { connect } from 'react-redux'
-// import TodoList from '../components/TodoList'
-
-// const mapStateToProps = state => ({
-//     todos: state.todos
-// })
-
-// const mapDispatchToProps = dispatch => ({
-//     toggleTodo: (id) => dispatch({ type: 'TOGGLE_TODO', id })
-// })
-
-// export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

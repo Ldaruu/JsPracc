@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import AppContainer from './VisibleTodos';
 
 
 
@@ -12,14 +11,16 @@ class AddTodo extends Component {
 
     handleChange = (e) =>{
         this.setState({
-            todo: e.target.value
+            [e.target.id] : e.target.value
         })
     }
 
     handleSubmit = (e) =>{
+        console.log(e.target[0].value)
         e.preventDefault();
-        // const todo = this.state.todo
-        this.props.dispatch({type:'ADD_TODO',todo:this.state.todo})
+        const todo = this.state.todo
+        this.props.dispatch({type:'ADD_TODO',todo:todo})
+        e.target[0].value = ''; 
         this.setState({
                 todo:''
             })
@@ -30,7 +31,7 @@ class AddTodo extends Component {
          <div>
           <form onSubmit ={this.handleSubmit}>
               <label htmlFor="todo">New Todo:</label>
-              <input type="text"id="todo" onChange={this.handleChange} value={this.state.text}/>
+              <input type="text"id="todo" onChange={this.handleChange}  />
               <button>Submit</button>
          </form>  
         </div>
@@ -38,4 +39,4 @@ class AddTodo extends Component {
     }
 }
 
-export default connect()(AddTodo,AppContainer)
+export default connect()(AddTodo)

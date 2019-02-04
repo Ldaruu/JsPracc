@@ -1,7 +1,7 @@
 import  React  from 'react';
 import { Button } from "primereact/button";
 
-const todoList = (todos, toggleTodo)=>{
+const todoList = ({todos, toggleTodo})=>{
 
     if(todos.length === 0 || todos.length === null || todos.length === undefined){
         return(
@@ -16,7 +16,7 @@ const todoList = (todos, toggleTodo)=>{
     <div>
         <ul>
             {todos.map(todo =>
-            <li key={todo.id} onClick={()=>toggleTodo(todo.id)}>{todo.todo}</li>
+            <li key={todo.id} {...todo} onClick={()=>toggleTodo(todo.id)}>{todo.todo}</li>
             )}
         </ul>
 
